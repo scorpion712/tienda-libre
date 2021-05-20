@@ -1,11 +1,13 @@
 {
   "name": "tienda-libre",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "mongodb": "^3.6.7",
@@ -17,7 +19,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "nodemon --watch server.js --exec node server.js",
+    "start": "react-scripts start",
+    "server": "nodemon --watch server.js --exec node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
