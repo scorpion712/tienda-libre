@@ -28,12 +28,14 @@ const Product = mongoose.model('products', new mongoose.Schema({
     categories: [String],
 }));
 
-app.get('/api/products', async (req, res) => {
-    try {
-        const products = await Product.find({});
+// Defining API for products
+app.get('/api/products', async (req, res) => { 
+    try { 
+        const {query} = req.body; 
+        const products = await Product.find(query ? query : {}); 
         res.send(products);
     } catch (error) {
-        console.log()
+        console.log(Error, error.message);
     }
 });
   
