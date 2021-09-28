@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { fetchProducts } from '../actions/productsActions';
 import { Store } from '../Store';
+import { CircularProgress } from '@material-ui/core'
 
 export default function HomeScreen() {
     const { state, dispatch } = useContext(Store); 
@@ -18,7 +19,7 @@ export default function HomeScreen() {
     return (
         <div>
             {loadingProducts ? 
-                console.log("do something while loading products...")
+                <CircularProgress disableShrink />
                 : errorProduct ?
                 alert("error: "+ errorProduct)
                 : (
