@@ -18,7 +18,7 @@ export default function HomeScreen() {
 
     return (
         <div>
-            {loadingProducts ? 
+            {loadingProducts || products.length < 1 ? 
                 <CircularProgress disableShrink />
                 : errorProduct ?
                 alert("error: "+ errorProduct)
@@ -32,6 +32,7 @@ export default function HomeScreen() {
                     ))
                 )
             } 
+            {console.log(products)}
         </div>
     )
 }
