@@ -15,6 +15,18 @@ module.exports.fetchProducts = async (req, res) => {
     }
 };
 
+// Get product detail by given id
+module.exports.getDetailProduct = async (req, res) =>  { 
+    try {
+        const id = req.params.id;
+        const products = await Product.find({_id: id});
+        res.send(products);
+    } catch (error) {
+        console.log(Error, error.message);
+        res.status(404).send({message: "Error: " + error.message});
+    }
+};
+
 // Delete a product by id
 module.exports.removeProduct = async (req, res) => {
     try {
